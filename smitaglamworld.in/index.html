@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridal Makeup Packages, Dress Rental & Nail Art in Odisha | Smita's Glam World</title>
+  <meta name="description" content="Smita's Glam World offers exquisite bridal makeup packages in Odisha, creative nail art, and affordable dress rentals for photoshoots & maternity. Serving Rayagada, Koraput, Bhubaneswar & more.">
+  <link rel="icon" href="./Favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="canonical" href="https://smitaglamworld.in/" />
+  
+  <style>
+    :root {
+      --primary-color: #e53e3e; /* Main Red */
+      --primary-hover-color: #dc2626; /* Darker Red for hover */
+      --secondary-color: #f5c6cb; /* Light Pink */
+      --accent-color: #FFD700; /* Golden Accent */
+      --text-dark: #4b5563; /* Dark Gray for text */
+      --text-light: #f9fafb; /* Light text for dark backgrounds */
+      --font-body: 'Lora', serif;
+      --font-headings: 'Dancing Script', cursive;
+      --font-logo: 'Dancing Script', cursive;
+    }
+
+    body { font-family: var(--font-body); margin: 0; padding: 0; color: var(--text-dark); overflow-x: hidden; }
+    
+    h1, h2, h3, h4, h5, h6, .logo-text, #gallery h2, #services h2, #rentals h2, #about h2, #blog h2, #testimonials h2, #video-testimonials h2, #booking h2, .why-choose-us-heading {
+      font-family: var(--font-headings);
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    
+    p, input, select, textarea, li {
+      font-family: var(--font-body);
+    }
+
+    /* Option B: Clean Sans-Serif Font specifically for the Header/Navigation */
+    header a, header button, .dropdown-menu a {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    }
+
+    /* --- SCROLL ANIMATION CSS --- */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-in-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Stagger Delays */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+
+    /* --- FIXED HERO SECTION CSS FOR MOBILE --- */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Images/gallery/floral-background.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll; 
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+   
+    @media (min-width: 768px) {
+      .hero-section {
+        min-height: 85vh;
+        background-attachment: fixed; 
+      }
+    }
+
+    .hero-section h1 { color: var(--text-light); text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); }
+    .hero-section p { color: #f3f4f6; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); }
+    .gallery-tab { background-color: #f9e6e6; }
+    .tab-active { background-color: white; border-bottom: 2px solid var(--primary-color); }
+    .footer-with-image { position: relative; background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.3; z-index: 0; }
+    .footer-content { position: relative; z-index: 1; }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .social-icon svg { fill: var(--text-dark); transition: fill 0.3s ease; }
+    .social-icon:hover svg { fill: var(--primary-hover-color); }
+    html { scroll-behavior: smooth; }
+    .mehndi-border { position: relative; padding: 20px; }
+    
+    .services-card { transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+    .services-card:hover { transform: translateY(-5px); box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
+    .services-card > a { flex-grow: 1; display: flex; flex-direction: column; }
+    .services-card > a > p { flex-grow: 1; }
+
+    .rental-card { background-color: white; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); overflow: hidden; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+    .rental-card:hover { transform: translateY(-5px); }
+    .rental-card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+    
+    .whatsapp-button { background-color: #25D366; color: white; transition: background-color 0.3s ease; display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; text-decoration: none; }
+    .whatsapp-button:hover { background-color: #1DAE52; }
+    .whatsapp-button svg { width: 1.5rem; height: 1.5rem; margin-right: 0.5rem; fill: currentColor; }
+
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; border-radius: 50%; padding: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); transition: background-color 0.3s ease; z-index: 1000; }
+    .whatsapp-float:hover { background-color: #20C058; }
+    .whatsapp-float svg { fill: white; }
+
+    #nav-menu a, #nav-menu button { font-weight: 600; color: var(--text-dark); transition: color 0.3s ease; }
+    #nav-menu a:hover, #nav-menu button:hover { color: var(--primary-color); }
+    #nav-menu a.bg-red-600 { background-color: var(--primary-color); color: var(--text-light); }
+    #nav-menu a.bg-red-600:hover { background-color: var(--primary-hover-color); }
+
+    .logo-text { font-family: var(--font-logo) !important; font-weight: 700; color: var(--primary-color); }
+    
+    .why-choose-card { background-color: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.12); text-align: center; transition: transform 0.3s ease; }
+    .why-choose-card:hover { transform: translateY(-5px); }
+    .why-choose-card-icon { font-size: 3rem; line-height: 1; margin-bottom: 1rem; }
+    .why-choose-card h3 { font-family: var(--font-body); font-weight: 600; margin-bottom: 0.5rem; }
+
+    /* Carousel Styles */
+    .carousel-container { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden; }
+    .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+    .carousel-slide { min-width: 100%; box-sizing: border-box; padding: 0 1rem; }
+    @media (min-width: 640px) { .carousel-slide { min-width: 50%; } }
+    @media (min-width: 1024px) { .carousel-slide { min-width: calc(100% / 3); } }
+    .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; padding: 0.75rem; border-radius: 50%; cursor: pointer; z-index: 10; }
+    .carousel-button:hover { background-color: rgba(0,0,0,0.8); }
+    .carousel-button.prev { left: 10px; }
+    .carousel-button.next { right: 10px; }
+    .carousel-button svg { width: 1.5em; height: 1.5em; }
+  </style>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Smita's Glam World",
+    "image": "https://smitaglamworld.in/Images/Smita_Glam_World.jpeg", 
+    "url": "https://smitaglamworld.in/", 
+    "telephone": "+919337582090",
+    "email": "dasmanasmita14@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Therubali",
+      "addressLocality": "Rayagada",
+      "addressRegion": "Odisha",
+      "postalCode": "765018", 
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://instagram.com/smitasglam"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Manasmita Das"
+    },
+    "priceRange": "₹₹₹",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Salon & Bridal Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bridal Makeup Packages" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mehndi Art" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nail Art" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wedding Dress Rental" } }
+      ]
+    }
+  }
+  </script>
+</head>
+<body class="font-sans">
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto flex flex-row-reverse md:flex-row justify-between items-center py-4 px-6">
+      <div class="md:hidden order-first md:order-none">
+        <button id="menu-toggle" class="text-gray-600 hover:text-red-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+      <div class="flex items-center">
+        <a href="#home" class="text-2xl logo-text">Smita's Glam World</a>
+      </div>
+      <div id="nav-menu" class="hidden md:flex md:items-center md:space-x-6">
+        <a href="#home">Home</a>
+        <a href="#gallery">Portfolio</a>
+        
+        <div class="relative dropdown">
+          <button id="services-toggle" class="focus:outline-none flex items-center font-semibold text-gray-600 hover:text-red-600 transition-colors">
+            Services
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="services-menu" class="dropdown-menu hidden absolute top-full md:bg-white md:shadow-md md:rounded-md md:w-56 z-20 border-t-2 border-red-600">
+            <a href="services/bridal-makeup-packages.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">Bridal Makeup Packages</a>
+            <a href="services/engagement-makeup.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">Engagement Makeup</a>
+            <a href="services/party-makeup.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">Party & Guest Makeup</a>
+            <a href="services/mehndi-art.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">Mehndi Art (Henna)</a>
+            <a href="services/nail-art.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">Nail Art</a>
+            <a href="services/saree-draping-hairstyling.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">Saree Draping & Hair</a>
+          </div>
+        </div>
+
+        <a href="#rentals">Rentals</a>
+        <a href="blog.html">Beauty Insights</a>
+        
+        <div class="relative dropdown">
+          <button id="cities-toggle" class="focus:outline-none flex items-center font-semibold text-gray-600 hover:text-red-600 transition-colors">
+            Cities
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="cities-menu" class="dropdown-menu hidden absolute top-full md:bg-white md:shadow-md md:rounded-md md:w-48 z-10 border-t-2 border-red-600">
+            <a href="makeup-artist-rayagada.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 font-bold text-red-600">Rayagada</a>
+            <a href="makeup-artist-koraput.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 font-bold text-red-600">Koraput</a>
+            <a href="makeup-artist-ganjam.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 font-bold text-red-600">Ganjam</a>
+            <a href="makeup-artist-bhubaneswar.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 font-bold text-red-600">Bhubaneswar</a>
+            <a href="makeup-artist-cuttack.html" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 font-bold text-red-600">Cuttack</a>
+          </div>
+        </div>
+        <a href="#booking" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm md:text-base">Book Now</a>
+      </div>
+    </nav>
+  </header>
+  
+ <section id="discount-banner" class="relative bg-red-800 text-white py-5 px-6 border-t-4 border-b-4 border-yellow-500 overflow-hidden shadow-xl rounded-lg fade-in-up">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+        <div class="absolute -top-24 -left-24 w-64 h-64 rounded-full border-8 border-yellow-500"></div>
+        <div class="absolute -bottom-24 -right-24 w-64 h-64 rounded-full border-8 border-yellow-500"></div>
+    </div>
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+        <div class="flex items-center gap-4">
+            <div class="bg-yellow-500 text-red-900 font-bold px-3 py-1 rounded text-xs animate-pulse shadow-lg uppercase tracking-wider">
+                Limited Slots
+            </div>
+            <div class="text-left">
+                <p class="font-headings text-3xl text-yellow-400 leading-tight">Upcoming Marriage Season</p>
+                <p class="text-sm text-red-100 font-light">Dates are filling up fast for Rayagada & Koraput!</p>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+            <div class="text-center sm:text-right">
+                <p class="font-bold text-xl">Up to <span class="text-yellow-400 text-2xl">25% OFF</span></p>
+                <p class="text-xs text-red-200">On Pre-Bookings</p>
+            </div>
+            <a href="#booking" class="bg-yellow-500 text-red-900 px-8 py-3 rounded-full hover:bg-white hover:text-red-800 transition-colors font-bold shadow-lg border-2 border-yellow-600 transform hover:-translate-y-0.5 text-center whitespace-nowrap">
+                Book Now
+            </a>
+        </div>
+    </div>
+</section>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section text-center px-6">
+    <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight fade-in-up">
+      Bridal Makeup Packages & Dress Rental in Odisha
+    </h1>
+    <p class="mt-4 text-lg max-w-2xl mx-auto fade-in-up delay-100">
+      Smita's Glam World offers professional bridal makeup packages, creative nail art, and affordable dress rentals for photoshoots, maternity, and events. Proudly serving <strong>Rayagada, Koraput, Ganjam, Bhubaneswar, Cuttack</strong>, and all of Odisha.
+    </p>
+    <div class="mt-6 flex flex-wrap justify-center space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 fade-in-up delay-200">
+      <a href="services/bridal-makeup-packages.html" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 flex items-center justify-center text-sm md:text-base w-full sm:w-auto mb-2 sm:mb-0">
+        <span>View Bridal Packages</span>
+      </a>
+      <a href="#rentals" class="bg-white text-red-600 px-6 py-3 rounded hover:bg-gray-100 flex items-center justify-center text-sm md:text-base w-full sm:w-auto">
+        <span>See Rental Collection</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="bg-white py-12 px-6">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
+        <div class="flex-shrink-0 fade-in-up">
+          <img src="Images/Smita_Glam_World.jpeg" alt="Smita, Founder of Smita's Glam World" class="w-32 h-32 sm:w-48 sm:h-48 rounded-full object-cover mx-auto md:mx-0 shadow-lg">
+        </div>
+        <div class="text-center md:text-left fade-in-up delay-100">
+          <h2 class="text-4xl font-bold">Meet Smita</h2>
+          <p class="text-gray-600 mt-2">Discover the passion behind Smita's Glam World</p>
+          <p class="text-gray-600 text-lg mt-4">
+            Smita, the founder of Smita's Glam World, brings over 5 years of experience in bridal makeup, mehndi art, and creative nail art. Her dedication ensures every client feels special, confident, and beautiful.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- GALLERY SECTION -->
+  <section id="gallery" class="bg-pink-50 py-12 px-6">
+    <div class="container mx-auto text-center mehndi-border">
+      <div class="fade-in-up">
+        <h2 class="text-4xl font-bold">Our Portfolio</h2>
+        <p class="text-gray-600 mt-2">Witness the transformations from our bridal makeup packages, intricate nail art, and event looks.</p>
+        <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mt-6">
+          <button class="tab-button tab-active px-4 py-2 sm:px-6 sm:py-2 rounded-t-lg" onclick="showTab('bridal', this)">Bridal Looks</button>
+          <button class="tab-button px-4 py-2 sm:px-6 sm:py-2 rounded-t-lg" onclick="showTab('mehndi', this)">Mehndi Designs</button>
+          <button class="tab-button px-4 py-2 sm:px-6 sm:py-2 rounded-t-lg" onclick="showTab('nail-art', this)">Nail Art</button>
+        </div>
+      </div>
+      
+      <div id="gallery-content" class="mt-6">
+        <div id="bridal" class="tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="bg-white p-4 rounded-lg shadow-md services-card fade-in-up delay-100">
+            <a href="services/bridal-makeup-packages.html" class="block h-full"> 
+              <img src="Images/gallery/traditional-bridal-image.jpg" alt="Traditional Bridal Makeup" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Traditional Bridal Makeup</p>
+            </a>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md services-card fade-in-up delay-200">
+            <a href="services/bridal-makeup-packages.html" class="block h-full"> 
+              <img src="Images/gallery/modern-bridal-look.jpg" alt="Modern Bridal Look" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Modern Bridal Look</p>
+            </a>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md services-card fade-in-up delay-300">
+            <a href="services/party-makeup.html" class="block h-full"> 
+              <img src="Images/gallery/reception-makeup.jpg" alt="Reception Makeup" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Reception Makeup</p>
+            </a>
+          </div>
+        </div>
+        <div id="mehndi" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+           <div class="bg-white p-4 rounded-lg shadow-md services-card">
+            <a href="services/mehndi-art.html" target="_blank" rel="noopener noreferrer" class="block h-full"> 
+              <img src="Images/gallery/traditional-mehndi.jpg" alt="Traditional Mehndi Design in Odisha" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Traditional Mehndi</p>
+            </a>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md services-card">
+            <a href="services/mehndi-art.html" target="_blank" rel="noopener noreferrer" class="block h-full"> 
+              <img src="Images/gallery/modern-mehndi.jpg" alt="Modern Mehndi Design" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Modern Mehndi</p>
+            </a>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md services-card">
+            <a href="services/mehndi-art.html" target="_blank" rel="noopener noreferrer" class="block h-full"> 
+              <img src="Images/gallery/bridal-mehndi.jpg" alt="Bridal Mehndi Design for Odia bride" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Bridal Mehndi</p>
+            </a>
+          </div>
+        </div>
+        <div id="nail-art" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+           <div class="bg-white p-4 rounded-lg shadow-md services-card">
+            <a href="services/nail-art.html" target="_blank" rel="noopener noreferrer" class="block h-full"> 
+              <img src="Images/gallery/bridal-nail-art.jpg" alt="Bridal nail art design in Odisha" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Bridal Nail Art</p>
+            </a>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md services-card">
+            <a href="services/nail-art.html" target="_blank" rel="noopener noreferrer" class="block h-full"> 
+              <img src="Images/gallery/festive-nail-art.jpg" alt="Festive nail art in Rayagada" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Festive Nail Art</p>
+            </a>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md services-card">
+            <a href="services/nail-art.html" target="_blank" rel="noopener noreferrer" class="block h-full"> 
+              <img src="Images/gallery/minimalist-nail-art.jpg" alt="Minimalist nail art design" class="w-full object-cover rounded-lg">
+              <p class="mt-2 text-gray-600">Minimalist Nail Art</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW FULL PORTFOLIO BUTTON DIRECTING TO portfolio.html -->
+      <div class="mt-12 flex justify-center fade-in-up delay-200">
+        <a href="portfolio.html" class="group relative inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold text-white bg-red-600 rounded-full overflow-hidden shadow-xl transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-red-300">
+          <span class="mr-2">View Full Portfolio & Live Feed</span>
+          <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="bg-white py-12 px-6">
+    <div class="container mx-auto text-center mehndi-border">
+      <div class="fade-in-up">
+        <h2 class="text-4xl font-bold">Our Signature Services</h2>
+        <p class="text-gray-600 mt-2">Crafting beauty for every occasion in Odisha.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+        
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-100">
+          <a href="services/bridal-makeup-packages.html">
+            <img src="Images/services/bridal-makeup-main.jpg" alt="Bridal Makeup Package" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Bridal Makeup Packages</h3>
+            <p class="text-gray-600 mt-2">Complete bridal makeup packages.</p>
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-200">
+          <a href="services/engagement-makeup.html">
+            <img src="Images/services/engagment-makeup-main.JPG" alt="Engagement Makeup Package in Odisha" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Engagement Makeup Packages</h3>
+            <p class="text-gray-600 mt-2">Stunning engagement makeup to highlight your natural beauty.</p>
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-300">
+          <a href="services/party-makeup.html">
+            <img src="Images/services/party-makeup-main.jpg" alt="Party Makeup Service" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Party Makeup</h3>
+            <p class="text-gray-600 mt-2">Glamorous makeup for parties and events, tailored to your style.</p>
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-400">
+          <a href="#booking"> <img src="./Images/services/jwr/makeup.jpg" alt="Photoshoot Makeup Service" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Photoshoot Makeup</h3>
+            <p class="text-gray-600 mt-2">Professional makeup services for photoshoots, ensuring you look camera-ready.</p>
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-100">
+          <a href="services/mehndi-art.html">
+            <img src="Images/services/mehndi-art-henna-main.jpg" alt="Mehndi Art Service" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Mehndi Art (Henna)</h3>
+            <p class="text-gray-600 mt-2">Intricate traditional and modern mehndi designs.</p>
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-200">
+          <a href="services/saree-draping-hairstyling.html">
+            <img src="Images/services/saree-draping-hairstyling.jpg" alt="Saree Draping and Hairstyling" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Saree Draping & Hairstyling</h3>
+            <p class="text-gray-600 mt-2">Expert saree draping and hairstyling to complement your look.</p>
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md services-card fade-in-up delay-300">
+          <a href="services/nail-art.html">
+            <img src="Images/services/nail-art-stylish.jpg" alt="Nail Art Service" class="h-48 w-full object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-red-600 mt-4">Nail Art</h3>
+            <p class="text-gray-600 mt-2">Elegant and creative nail art designs.</p>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- RENTALS SECTION -->
+  <section id="rentals" class="bg-pink-50 py-12 px-6">
+    <div class="container mx-auto text-center">
+      <div class="fade-in-up">
+        <h2 class="text-4xl font-bold">Our Exclusive Rental Collection</h2>
+        <p class="text-gray-600 mt-2 mb-8">Contact us on WhatsApp to see the full catalog!</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8">
+        <div class="rental-card fade-in-up delay-100">
+          <img src="./Images/services/jwr/photoshoot.jpg" alt="Photoshoot Dress Rental in Odisha" class="w-full h-64 object-cover">
+          <div class="rental-card-content">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2 font-body font-semibold">Photoshoot Dress Rentals</h3>
+            <p class="text-gray-600 mb-6">Stunning gowns, traditional wear, and modern outfits for your pre-wedding, fashion, or personal photoshoots.</p>
+            <a href="https://wa.me/+919337582090" class="whatsapp-button mt-auto">
+              <svg viewBox="0 0 24 24"><path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/></svg>
+              <span>See Dress Catalog</span>
+            </a>
+          </div>
+        </div>
+        <div class="rental-card fade-in-up delay-200">
+          <img src="./Images/services/jwr/mat.jpg" alt="Maternity Dress Rental for Photoshoot in Odisha" class="w-full h-64 object-cover">
+          <div class="rental-card-content">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2 font-body font-semibold">Maternity Dress Rentals</h3>
+            <p class="text-gray-600 mb-6">Beautiful and comfortable gowns designed to celebrate your maternity journey. Perfect for your baby shower or photoshoot.</p>
+            <a href="https://wa.me/+919337582090" class="whatsapp-button mt-auto">
+              <svg viewBox="0 0 24 24"><path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/></svg>
+              <span>See Maternity Catalog</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="bg-gray-100 py-12 px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold fade-in-up">Beauty Insights</h2>
+      <div class="carousel-container insights-carousel-container mt-8 fade-in-up delay-100">
+        <div class="carousel-track insights-carousel-track flex justify-start">
+          <div class="carousel-slide insight-slide">
+            <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+              <img src="./Images/blog/rayagada-bridal-hero.jpg" alt="Luxury Bridal Makeup" class="h-48 w-full object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f5c6cb/4b5563?text=Makeup+Tips';">
+              <h3 class="text-xl font-bold text-red-600 mt-4 text-left">Luxury Makeup in Rayagada</h3>
+              <p class="text-gray-600 mt-2 flex-grow text-left">Why Smita’s Glam World is the top choice.</p>
+              <a href="blog/luxury-makeup-rayagada.html" class="inline-block mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 self-start">Read More</a>
+            </div>
+          </div>
+          <div class="carousel-slide insight-slide">
+            <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+              <img src="./Images/blog/odia-bride-2025.jpg" alt="Odia Bridal Trends" class="h-48 w-full object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold text-red-600 mt-4 text-left">Bridal Trends 2025</h3>
+              <p class="text-gray-600 mt-2 flex-grow text-left">Latest trends for Odia brides.</p>
+              <a href="blog/latest-bridal-makeup-trends-Odia-brides.html" class="inline-block mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 self-start">Read More</a>
+            </div>
+          </div>
+          <div class="carousel-slide insight-slide">
+            <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+              <img src="./Images/blog/odia-eyes-2025.jpg" alt="Odia bride with traditional eye makeup" class="h-48 w-full object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold text-red-600 mt-4 text-left">How to achieve a flawless Odia Bridal Eye Makeup Guide?</h3>
+              <p class="text-gray-600 mt-2 flex-grow text-left">As an Odia bridal artist who's transformed hundreds of brides across Rayagada, Bhubaneswar, and Cuttack, I know the eyes are the soul.</p>
+              <a href="blog/achieve-flawless-Odia-bridaleye-makeup-look.html" class="inline-block mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 self-start">Read More</a>
+            </div>
+          </div>
+          <div class="carousel-slide insight-slide">
+            <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+              <img src="./Images/blog/wed-prep-1.jpg" alt="Wedding Day Prep Tips for Brides" class="h-48 w-full object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold text-red-600 mt-4 text-left">Wedding Day prep: Tips for Bride</h3>
+              <p class="text-gray-600 mt-2 flex-grow text-left">Essential tips to prepare for your big day, including skincare routines and beauty checklists.</p>
+              <a href="blog/wedding-day-prep.html" class="inline-block mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 self-start">Read More</a>
+            </div>
+          </div>
+           <div class="carousel-slide insight-slide">
+            <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+              <img src="./Images/blog/skin-care-1.jpg" alt="Skincare Before Wedding" class="h-48 w-full object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold text-red-600 mt-4 text-left">Essential Skincare Before Your Wedding</h3>
+              <p class="text-gray-600 mt-2 flex-grow text-left">Achieve that bridal glow with these must-do skincare tips leading up to your wedding.</p>
+              <a href="blog/skincare-before-wedding.html" class="inline-block mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 self-start">Read More</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-button prev blog-carousel-prev"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg></button>
+        <button class="carousel-button next blog-carousel-next"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="bg-gray-50 py-12 px-6">
+    <div class="container mx-auto text-center">
+      <div class="fade-in-up">
+        <h2 class="text-4xl font-bold">What Our Clients Say</h2>
+        <p class="text-gray-600 mt-2">Hear from our happy brides about their experience with Smita's Glam World</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+        <div class="bg-white p-6 rounded-lg shadow-md fade-in-up delay-100"><img src="./Images/services/Sumi-client.jpeg" alt="Sumi's Testimonial" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto object-cover rounded-full shadow-lg">
+          <div class="mt-4 text-yellow-400 text-lg">★★★★★</div>
+          <h3 class="text-xl font-bold text-red-600 mt-2">Sumi</h3>
+          <p class="text-gray-600 mt-2">"Smita's makeup service was absolutely amazing! She made me look like a dream on my wedding day."</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md fade-in-up delay-200"><img src="Images/services/Bridal-makeup.jpeg" alt="Suchi's Testimonial" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto object-cover rounded-full shadow-lg">
+          <div class="mt-4 text-yellow-400 text-lg">★★★★★</div>
+          <h3 class="text-xl font-bold text-red-600 mt-2">Suchi</h3>
+          <p class="text-gray-600 mt-2">"I couldn't have asked for a better experience. Smita's team was professional, and the makeup lasted all day!"</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md fade-in-up delay-300"><img src="./Images/testimonial/Puja.jpg" alt="Pooja's Testimonial" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto object-cover rounded-full shadow-lg">
+          <div class="mt-4 text-yellow-400 text-lg">★★★★★</div>
+          <h3 class="text-xl font-bold text-red-600 mt-2">Pooja</h3>
+          <p class="text-gray-600 mt-2">"Smita's Glam World transformed my look for my big day. The mehndi and makeup were perfect!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO TESTIMONIALS SECTION -->
+  <section id="video-testimonials" class="bg-pink-50 py-12 px-6">
+    <div class="container mx-auto text-center">
+      <div class="fade-in-up">
+        <h2 class="text-4xl font-bold">Video Testimonials</h2>
+        <p class="text-gray-600 mt-2 mb-8">See what our clients have to say in their own words!</p>
+      </div>
+
+      <div class="carousel-container video-testimonial-carousel-container relative fade-in-up delay-100">
+        <div class="carousel-track video-testimonial-carousel-track">
+          <div class="carousel-slide video-testimonial-slide"> 
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center h-full">
+              <a href="https://www.instagram.com/reel/DN2t7yeYrHR/?igsh=amUwMW1ycnh4cDY2" target="_blank" rel="noopener noreferrer" aria-label="Watch video testimonial from Ankita on Instagram" class="group block w-full">
+                  <div class="relative">
+                      <img src="./Images/testimonial/Ankita.jpg" 
+                           alt="Video testimonial from Ankita on her bridal makeup"
+                           class="w-full aspect-video object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-lg group-hover:bg-opacity-40 transition-opacity duration-300 pointer-events-none">
+                          <svg class="w-10 h-10 sm:w-12 sm:h-12 text-white opacity-70 group-hover:opacity-100 transition-opacity duration-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                      </div>
+                  </div>
+              </a>
+              <h3 class="text-lg font-bold text-red-600 mt-3">Ankita</h3>
+              <p class="text-gray-600 mt-1 text-sm flex-grow">"The transformation was incredible! Watch my video to see."</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide video-testimonial-slide">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center h-full">
+              <a href="https://www.instagram.com/reel/DOKgFWtiSyq/?igsh=cGxodnRvbHYzcjk1" target="_blank" rel="noopener noreferrer" aria-label="Watch video testimonial from Mousumi on Instagram" class="group block w-full">
+                  <div class="relative">
+                      <img src="./Images/testimonial/Mousumi.jpg" 
+                           alt="Video testimonial from Mousumi on her bridal makeup"
+                           class="w-full aspect-video object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-lg group-hover:bg-opacity-40 transition-opacity duration-300 pointer-events-none">
+                          <svg class="w-10 h-10 sm:w-12 sm:h-12 text-white opacity-70 group-hover:opacity-100 transition-opacity duration-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                      </div>
+                  </div>
+              </a>
+              <h3 class="text-lg font-bold text-red-600 mt-3">Mousumi</h3>
+              <p class="text-gray-600 mt-1 text-sm flex-grow">"So happy with my bridal look! Check out the video."</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide video-testimonial-slide">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center h-full">
+              <a href="https://www.instagram.com/reel/DNm3RKHJQei/?igsh=MWpkNmFrdG45Z2ppYg==" target="_blank" rel="noopener noreferrer" aria-label="Watch video testimonial from Somya on Instagram" class="group block w-full">
+                  <div class="relative">
+                      <img src="./Images/testimonial/Somya.jpg" 
+                           alt="Video testimonial from Somya on her bridal makeup"
+                           class="w-full aspect-video object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-lg group-hover:bg-opacity-40 transition-opacity duration-300 pointer-events-none">
+                          <svg class="w-10 h-10 sm:w-12 sm:h-12 text-white opacity-70 group-hover:opacity-100 transition-opacity duration-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                      </div>
+                  </div>
+              </a>
+              <h3 class="text-lg font-bold text-red-600 mt-3">Somya</h3>
+              <p class="text-gray-600 mt-1 text-sm flex-grow">"My Bridal was perfect & awsome! See the details here."</p>
+            </div>
+          </div>
+          
+          </div>
+        <button class="carousel-button prev video-testimonial-prev" aria-label="Previous Video Testimonial">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        <button class="carousel-button next video-testimonial-next" aria-label="Next Video Testimonial">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 text-center max-w-4xl">
+        <h2 class="text-4xl font-bold why-choose-us-heading mb-8 fade-in-up">Why Choose Smitaglamworld?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="why-choose-card fade-in-up delay-100"><div class="why-choose-card-icon">✨</div><h3>Experienced Professionals</h3><p>Highly skilled artists.</p></div>
+            <div class="why-choose-card fade-in-up delay-200"><div class="why-choose-card-icon">💖</div><h3>Premium Quality Products</h3><p>Cruelty-free & skin-friendly.</p></div>
+            <div class="why-choose-card fade-in-up delay-300"><div class="why-choose-card-icon">🤝</div><h3>Personalized Consultations</h3><p>We understand your vision.</p></div>
+            <div class="why-choose-card fade-in-up delay-100"><div class="why-choose-card-icon">🧼</div><h3>Hygienic Practices</h3><p>We adhere to the strictest hygiene standards.</p></div>
+            <div class="why-choose-card fade-in-up delay-200"><div class="why-choose-card-icon">🎨</div><h3>Latest Trends & Techniques</h3><p>Stay ahead with our artists who are constantly updated.</p></div>
+            <div class="why-choose-card fade-in-up delay-300"><div class="why-choose-card-icon">🌟</div><h3>One-Stop Solution</h3><p>Your complete event solution: Makeup, Mehndi, and Dress Rentals.</p></div>
+        </div>
+    </div>
+ </section>
+
+  <!-- BOOKING SECTION (WITH GOOGLE SHEET LOGIC) -->
+  <section id="booking" class="bg-gray-100 py-12 px-6">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center fade-in-up">Book Your Appointment</h2>
+      <div class="flex flex-col md:flex-row justify-center mt-8 space-y-6 md:space-y-0 md:space-x-6">
+        <div class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2 fade-in-up delay-100">
+          <h3 class="text-2xl font-bold text-red-600 mb-4 font-headings">Book a Service</h3>
+          <form id="booking-form" class="space-y-4">
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <input type="text" name="fullName" placeholder="Full Name" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-red-600 font-body" required>
+              <input type="email" name="email" placeholder="Email" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-red-600 font-body" required>
+            </div>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <input type="tel" name="phoneNumber" placeholder="Phone Number" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-red-600 font-body" required>
+              <input type="date" name="preferredDate" placeholder="Preferred Date" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-red-600 font-body" required>
+            </div>
+            <select name="service" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-red-600 font-body" required>
+              <option value="">Select a Service</option>
+              <option value="Bridal Makeup Package">Bridal Makeup Package</option>
+              <option value="Engagement Makeup Package">Engagement Makeup Package</option>
+              <option value="Party Makeup">Party Makeup</option>
+              <option value="Photoshoot Dress Rental">Photoshoot Dress Rental</option>
+              <option value="Maternity Dress Rental">Maternity Dress Rental</option>
+              <option value="Mehndi Art (Henna)">Mehndi Art (Henna)</option>
+              <option value="Saree Draping & Hairstyling">Saree Draping & Hairstyling</option>
+              <option value="Nail Art">Nail Art</option>
+              <option value="Photo Shoot Makeup">Photo Shoot Makeup</option>
+            </select>
+            <textarea name="additionalDetails" placeholder="Additional Details (e.g., event type, location if different)" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-red-600 font-body" rows="4"></textarea>
+            <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded w-full font-body font-bold hover:bg-red-700">Submit Booking Request</button>
+          </form>
+          <p id="form-message" class="mt-4 text-center text-gray-600 font-body"></p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2 fade-in-up delay-200">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4 font-headings">Quick Contact</h3>
+          <p class="text-gray-600 font-body"><strong>Working Hours:</strong></p>
+          <p class="text-gray-600 font-body">Monday - Friday: 10:00 AM - 7:00 PM</p>
+          <p class="text-gray-600 font-body">Saturday: 9:00 AM - 8:00 PM</p>
+          <p class="text-gray-600 font-body">Sunday: By appointment only</p>
+          <p class="text-gray-600 mt-4 font-body"><strong>Location:</strong></p>
+          <p class="text-gray-600 font-body">Therubali, Rayagada, Odisha, India</p>
+          <a href="https://wa.me/+919337582090?text=Hi%20Smita's%20Glam%20World,%20I'd%20like%20to%20inquire%20about%20your%20services." class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 w-full mt-4 flex items-center justify-center font-body font-bold" rel="noopener noreferrer">
+            <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/></svg>
+            <span>WhatsApp Us</span>
+          </a>
+          <p class="text-gray-600 mt-4 font-body"><strong>Prefer to call?</strong></p>
+          <p class="text-gray-600 font-body text-lg font-bold text-red-600">+91 9337582090</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter" class="bg-red-600 py-12 px-6 text-white text-center">
+    <div class="container mx-auto">
+      <div class="fade-in-up">
+        <h2 class="text-4xl font-bold">Stay Glamorous!</h2>
+        <p class="mt-2 text-lg">Subscribe to our newsletter for exclusive beauty tips, offers, and updates from Smita's Glam World.</p>
+      </div>
+      <form id="newsletter-form" class="mt-8 max-w-md mx-auto flex flex-col sm:flex-row gap-4 fade-in-up delay-100">
+        <input type="email" name="email" placeholder="Enter your email address" class="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+        <button type="submit" class="bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">Subscribe</button>
+      </form>
+      <p id="newsletter-message" class="mt-4 text-sm"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white py-12 px-6 border-t relative">
+    <div class="footer-with-image absolute inset-0"></div>
+    <div class="footer-content container mx-auto fade-in-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4"><a href="#home" class="text-2xl logo-text">Smita's Glam World</a></div>
+          <p class="text-gray-600">Professional bridal makeup, mehndi designs, and wedding beauty services in Therubali, Rayagada, Odisha.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4 font-headings">Navigation</h3>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-600 hover:text-red-600">Home</a></li>
+            <li><a href="#gallery" class="text-gray-600 hover:text-red-600">Portfolio</a></li>
+            <li><a href="#services" class="text-gray-600 hover:text-red-600">Services</a></li>
+            <li><a href="#rentals" class="text-gray-600 hover:text-red-600">Rentals</a></li>
+            <li><a href="#blog" class="text-gray-600 hover:text-red-600">Beauty Insights</a></li>
+            <li><a href="#newsletter" class="text-gray-600 hover:text-red-600">Newsletter</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4 font-headings">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="services/bridal-makeup-packages.html" class="text-gray-600 hover:text-red-600">Bridal Makeup Packages</a></li>
+            <li><a href="#rentals" class="text-gray-600 hover:text-red-600">Dress Rentals</a></li>
+            <li><a href="services/mehndi-art.html" class="text-gray-600 hover:text-red-600">Mehndi Art</a></li>
+            <li><a href="services/saree-draping-hairstyling.html" class="text-gray-600 hover:text-red-600">Saree Draping</a></li>
+            <li><a href="services/party-makeup.html" class="text-gray-600 hover:text-red-600">Party Makeup</a></li>
+            <li><a href="services/engagement-makeup.html" class="text-gray-600 hover:text-red-600">Engagement Makeup Packages</a></li>
+            <li><a href="services/nail-art.html" class="text-gray-600 hover:text-red-600">Nail Art</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4 font-headings">Contact & Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="https://wa.me/+919337582090" class="text-gray-600 hover:text-red-600" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="#booking" class="text-gray-600 hover:text-red-600">Book Appointment</a></li>
+            <li><a href="privacy-policy.html" class="text-gray-600 hover:text-red-600">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html" class="text-gray-600 hover:text-red-600">Terms of Service</a></li>
+            <li><a href="refund-policy.html" class="text-gray-600 hover:text-red-600">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-600 text-sm">© <span id="current-year">2026</span> Smita's Glam World. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="https://www.instagram.com/smitasglam/" class="social-icon focus:outline-none focus:ring-2 focus:ring-red-600" rel="noopener noreferrer" aria-label="Instagram"><svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975-.975-1.24-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326 2.633 1.301-3.608.975-.975 2.242 1.24 3.608 1.301 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.595.073-2.957.447-4.067 1.557-1.11 1.11-1.484 2.472-1.557 4.067-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.073 1.595.447 2.957 1.557 4.067 1.11 1.11 2.472 1.484 4.067 1.557 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.595-.073 2.957-.447 4.067-1.557 1.11-1.11 1.484-2.472 1.557-4.067.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.073-1.595-.447-2.957-1.557-4.067-1.11-1.11-2.472-1.484-4.067-1.557-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61575119536099" class="social-icon focus:outline-none focus:ring-2 focus:ring-red-600" rel="noopener noreferrer" aria-label="Facebook"><svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.407.593 24 1.324 24h11.494v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.787 4.657-4.787 1.325 0 2.463.098 2.795.142v3.24h-1.918c-1.504 0-1.794.715-1.794 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.324V1.324C24 .593 23.407 0 22.676 0z"/></svg></a>
+          <a href="https://wa.me/+919337582090" class="social-icon focus:outline-none focus:ring-2 focus:ring-red-600" rel="noopener noreferrer" aria-label="WhatsApp"><svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/>
+    </svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/+919337582090" class="whatsapp-float" rel="noopener noreferrer" aria-label="WhatsApp Chat">
+    <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // --- SCROLL REVEAL OBSERVER ---
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Triggers when 15% of the element is visible
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: Unobserve if you only want the animation to happen once
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.fade-in-up');
+        animatedElements.forEach(el => scrollObserver.observe(el));
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if(menuToggle && navMenu) { 
+        menuToggle.addEventListener('click', () => {
+            const isHidden = navMenu.classList.contains('hidden');
+            if (isHidden) {
+                navMenu.classList.remove('hidden');
+                navMenu.classList.add('flex', 'flex-col', 'space-y-4', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'p-4', 'shadow-md', 'z-50');
+            } else {
+                navMenu.classList.add('hidden');
+                navMenu.classList.remove('flex', 'flex-col', 'space-y-4', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'p-4', 'shadow-md', 'z-50');
+            }
+        });
+    }
+
+    // Cities Dropdown Toggle (Unified style)
+    const citiesToggle = document.getElementById('cities-toggle');
+    const citiesMenu = document.getElementById('cities-menu');
+    if(citiesToggle && citiesMenu) {
+        citiesToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        citiesMenu.classList.toggle('hidden');
+        if (!citiesMenu.classList.contains('hidden') && window.innerWidth < 768) {
+            citiesMenu.classList.add('flex', 'flex-col', 'absolute', 'bg-white', 'shadow-md', 'rounded-md', 'mt-2', 'w-48', 'z-20');
+        } else if (window.innerWidth < 768) {
+            citiesMenu.classList.remove('flex', 'flex-col', 'absolute', 'bg-white', 'shadow-md', 'rounded-md', 'mt-2', 'w-48', 'z-20');
+        }
+        });
+        document.addEventListener('click', (e) => {
+            if (citiesMenu && !citiesToggle.contains(e.target) && !citiesMenu.contains(e.target)) {
+                citiesMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Services Dropdown Toggle (For Mobile)
+    const servicesToggle = document.getElementById('services-toggle');
+    const servicesMenu = document.getElementById('services-menu');
+    
+    if(servicesToggle && servicesMenu) {
+        servicesToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            servicesMenu.classList.toggle('hidden');
+            
+            if (!servicesMenu.classList.contains('hidden') && window.innerWidth < 768) {
+                servicesMenu.classList.add('flex', 'flex-col', 'absolute', 'bg-white', 'shadow-md', 'rounded-md', 'mt-2', 'w-56', 'z-20');
+            } else if (window.innerWidth < 768) {
+                servicesMenu.classList.remove('flex', 'flex-col', 'absolute', 'bg-white', 'shadow-md', 'rounded-md', 'mt-2', 'w-56', 'z-20');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (servicesMenu && !servicesToggle.contains(e.target) && !servicesMenu.contains(e.target)) {
+                servicesMenu.classList.add('hidden');
+            }
+        });
+    }
+    
+    // --- GOOGLE SHEETS FORM LOGIC ---
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxB3v075gNxhxSSRj_Fex-bSqH9DRdt1nFbMKlCcsMlampyExBWA7j9iKsTdTVccbchIQ/exec'; 
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            const formMessage = document.getElementById('form-message');
+            const submitButton = bookingForm.querySelector('button[type="submit"]');
+            formMessage.textContent = 'Submitting...';
+            if (submitButton) submitButton.disabled = true; 
+            const formData = new FormData(bookingForm); 
+            try {
+                const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
+                const result = await response.json(); 
+                if (result.result === "success") {
+                    formMessage.textContent = 'Success! We will contact you shortly.';
+                    formMessage.classList.add('text-green-600');
+                    bookingForm.reset(); 
+                } else {
+                    formMessage.textContent = 'Failed to submit. Please check details.';
+                }
+            } catch (error) {
+                formMessage.textContent = 'Error submitting. Contact us directly.';
+            } finally {
+                if (submitButton) submitButton.disabled = false; 
+            }
+        });
+    }
+
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        const NEWSLETTER_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhP6DW9oTHaxw7xX-Ktt1vZUpNjZHeBfWD2gbgrDYkcpft5AsQNX3dFK1Qxsc9bVjg/exec'; 
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newsletterMessage = document.getElementById('newsletter-message');
+            const submitButton = newsletterForm.querySelector('button[type="submit"]');
+            newsletterMessage.textContent = 'Subscribing...';
+            if (submitButton) submitButton.disabled = true;
+            const formData = new FormData(newsletterForm);
+            try {
+                const response = await fetch(NEWSLETTER_SCRIPT_URL, { method: 'POST', body: formData });
+                const result = await response.json();
+                if (result.result === "success") {
+                    newsletterMessage.textContent = 'Thank you for subscribing!';
+                    newsletterForm.reset();
+                } else {
+                    newsletterMessage.textContent = 'Failed to subscribe.';
+                }
+            } catch (error) {
+                newsletterMessage.textContent = 'An error occurred.';
+            } finally {
+                if (submitButton) submitButton.disabled = false;
+            }
+        });
+    }
+
+    // --- CAROUSEL & TABS LOGIC ---
+    function showTab(tabId, clickedButton) {
+      document.querySelectorAll('.tab-content').forEach(c => { c.classList.add('hidden'); c.classList.remove('grid'); });
+      const active = document.getElementById(tabId);
+      if (active) { active.classList.remove('hidden'); active.classList.add('grid'); }
+      document.querySelectorAll('.tab-button').forEach(b => { b.classList.remove('tab-active', 'bg-white', 'border-b-2', 'border-red-600'); b.classList.add('gallery-tab'); });
+      if (clickedButton) { clickedButton.classList.add('tab-active', 'bg-white', 'border-b-2', 'border-red-600'); clickedButton.classList.remove('gallery-tab'); }
+    }
+
+    // Generic Carousel Function
+    function setupCarousel(containerSelector, trackSelector, slideSelector, prevButtonSelector, nextButtonSelector) {
+        const carouselContainer = document.querySelector(containerSelector);
+        if (!carouselContainer) return;
+        const track = carouselContainer.querySelector(trackSelector);
+        if (!track) return;
+        const slides = Array.from(track.children).filter(child => child.classList.contains(slideSelector.replace('.', '')));
+        const nextButton = carouselContainer.querySelector(nextButtonSelector);
+        const prevButton = carouselContainer.querySelector(prevButtonSelector);
+        
+        let slideWidth = 0;
+        let currentIndex = 0;
+        let maxIndex = 0;
+
+        function updateCarouselConfig() {
+            if (slides.length === 0) return;
+            const trackOriginalDisplay = track.style.display;
+            track.style.display = 'flex';
+            slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.display = trackOriginalDisplay;
+
+            if (slideWidth > 0) {
+                const visibleSlides = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1);
+                maxIndex = Math.max(0, slides.length - visibleSlides);
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                setPosition(currentIndex);
+            }
+        }
+
+        function setPosition(index) {
+            if (slideWidth > 0) track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
+        }
+
+        if (nextButton && prevButton) {
+            nextButton.addEventListener('click', () => {
+                if (slides.length === 0) return;
+                currentIndex++;
+                if (currentIndex > maxIndex) currentIndex = 0; 
+                setPosition(currentIndex);
+            });
+            prevButton.addEventListener('click', () => {
+                if (slides.length === 0) return;
+                currentIndex--;
+                if (currentIndex < 0) currentIndex = maxIndex; 
+                setPosition(currentIndex);
+            });
+        }
+        
+        if (slides.length > 0) {
+            window.addEventListener('resize', updateCarouselConfig);
+            setTimeout(updateCarouselConfig, 100); 
+        }
+    }
+
+    setupCarousel('#blog .insights-carousel-container', '.insights-carousel-track', '.insight-slide', '.blog-carousel-prev', '.blog-carousel-next');
+    setupCarousel('#video-testimonials .video-testimonial-carousel-container', '.video-testimonial-carousel-track', '.video-testimonial-slide', '.video-testimonial-prev', '.video-testimonial-next');
+  </script>
+</body>
+</html>
