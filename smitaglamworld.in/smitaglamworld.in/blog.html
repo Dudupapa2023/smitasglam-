@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smita's Glam World - Beauty Insights</title>
+  <link rel="icon" href="./Favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary-color: #e53e3e; /* Main Red */
+      --primary-hover-color: #dc2626; /* Darker Red for hover */
+      --secondary-color: #f5c6cb; /* Light Pink */
+      --accent-color: #FFD700; /* Golden Accent */
+      --text-dark: #4b5563; /* Dark Gray for text */
+      --text-light: #f9fafb; /* Light text for dark backgrounds */
+      --font-body: 'Lora', serif;
+      --font-headings: 'Dancing Script', cursive;
+      --font-logo: 'Dancing Script', cursive;
+    }
+
+    body { font-family: var(--font-body); margin: 0; padding: 0; color: var(--text-dark); }
+    h2, h3 {
+      font-family: var(--font-headings);
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    .logo-text { font-family: var(--font-logo); font-weight: 700; color: var(--primary-color); }
+
+    /* Navigation styling */
+    #nav-menu a, #nav-menu button { font-weight: 600; color: var(--text-dark); transition: color 0.3s ease; }
+    #nav-menu a:hover, #nav-menu button:hover { color: var(--primary-color); }
+    #nav-menu a.bg-red-600 { background-color: var(--primary-color); color: var(--text-light); }
+    #nav-menu a.bg-red-600:hover { background-color: var(--primary-hover-color); }
+
+    /* Footer styling */
+    .footer-with-image {
+      position: relative;
+      background-image: url(''); center center; /* ACTION: Replace this placeholder */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .footer-content {
+      position: relative;
+      z-index: 1;
+    }
+    .social-icon svg {
+      fill: var(--text-dark);
+      transition: fill 0.3s ease;
+    }
+    .social-icon:hover svg {
+      fill: var(--primary-hover-color);
+    }
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; border-radius: 50%; padding: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); transition: background-color 0.3s ease; z-index: 1000; }
+    .whatsapp-float:hover { background-color: #20C058; }
+    .whatsapp-float svg { fill: white; }
+
+    /* Pagination styling */
+    .pagination-button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem; /* rounded-md */
+        font-weight: 600;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .pagination-button.active {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    .pagination-button:not(.active):hover {
+        background-color: #f0f0f0;
+    }
+    .pagination-button.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto flex flex-row-reverse md:flex-row justify-between items-center py-4 px-6">
+      <div class="md:hidden order-first md:order-none">
+        <button id="menu-toggle" class="text-gray-600 hover:text-red-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex items-center">
+        <a href="index.html#home" class="text-2xl logo-text">Smita's Glam World</a>
+      </div>
+      <div id="nav-menu" class="hidden md:flex md:items-center md:space-x-6">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#gallery">Portfolio</a>
+        <a href="blog.html">Beauty Insights</a>
+        <div class="relative dropdown">
+          <button id="cities-toggle" class="focus:outline-none">Cities</button>
+          <div id="cities-menu" class="dropdown-menu hidden absolute md:bg-white md:shadow-md md:rounded-md md:mt-2 md:w-48 z-10">
+            <a href="index.html#city-rayagada" class="block px-4 py-2 hover:bg-gray-100">Rayagada</a>
+            <a href="index.html#city-koraput" class="block px-4 py-2 hover:bg-gray-100">Koraput</a>
+            <a href="index.html#city-ganjam" class="block px-4 py-2 hover:bg-gray-100">Ganjam</a>
+            <a href="index.html#city-bhubaneswar" class="block px-4 py-2 hover:bg-gray-100">Bhubaneswar</a>
+            <a href="index.html#city-cuttack" class="block px-4 py-2 hover:bg-gray-100">Cuttack</a>
+          </div>
+        </div>
+        <a href="index.html#booking" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm md:text-base">Book Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="blog-page" class="py-12 px-6">
+    <div class="container mx-auto">
+      <header class="text-center mb-12">
+        <h2 class="text-5xl font-bold">Beauty Insights</h2>
+        <p class="text-gray-600 mt-2 text-lg">Tips, trends, and inspiration for your perfect look.</p>
+      </header>
+
+      <div id="blog-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+      <div id="pagination-controls" class="flex justify-center items-center space-x-2 mt-12">
+        <button id="prev-page" class="pagination-button text-gray-600 border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed">Previous</button>
+        <div id="page-numbers" class="flex space-x-2">
+          </div>
+        <button id="next-page" class="pagination-button text-gray-600 border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+      </div>
+    </div>
+  </main>
+
+  <section id="newsletter" class="bg-red-600 py-12 px-6 text-white text-center">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold">Stay Glamorous!</h2>
+      <p class="mt-2 text-lg">Subscribe to our newsletter for exclusive beauty tips, offers, and updates from Smita's Glam World.</p>
+      <form id="newsletter-form" class="mt-8 max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+        <input type="email" name="email" placeholder="Enter your email address" class="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+        <button type="submit" class="bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">Subscribe</button>
+      </form>
+      <p id="newsletter-message" class="mt-4 text-sm"></p>
+    </div>
+  </section>
+  <footer class="bg-white py-12 px-6 border-t relative">
+    <div class="footer-with-image absolute inset-0"></div>
+    <div class="footer-content container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4"><a href="index.html#home" class="text-2xl logo-text">Smita's Glam World</a></div>
+          <p class="text-gray-600">Professional bridal makeup, mehndi designs, and wedding beauty services in Therubali, Rayagada, Odisha.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4 font-headings">Navigation</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html#home" class="text-gray-600 hover:text-red-600">Home</a></li>
+            <li><a href="index.html#services" class="text-gray-600 hover:text-red-600">Services</a></li>
+            <li><a href="index.html#gallery" class="text-gray-600 hover:text-red-600">Portfolio</a></li>
+            <li><a href="blog.html" class="text-gray-600 hover:text-red-600">Beauty Insights</a></li>
+            <li><a href="#newsletter" class="text-gray-600 hover:text-red-600">Newsletter</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4 font-headings">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="services/bridal-makeup-packages.html" class="text-gray-600 hover:text-red-600">Bridal Makeup</a></li>
+            <li><a href="services/mehndi-art.html" class="text-gray-600 hover:text-red-600">Mehndi Art</a></li>
+            <li><a href="services/saree-draping-hairstyling.html" class="text-gray-600 hover:text-red-600">Saree Draping</a></li>
+            <li><a href="services/party-makeup.html" class="text-gray-600 hover:text-red-600">Party Makeup</a></li>
+            <li><a href="services/engagement-makeup.html" class="text-gray-600 hover:text-red-600">Engagement Makeup</a></li>
+            <li><a href="services/nail-art.html" class="text-gray-600 hover:text-red-600">Nail Art</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4 font-headings">Contact & Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="https://wa.me/+919337582090" class="text-gray-600 hover:text-red-600" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="index.html#booking" class="text-gray-600 hover:text-red-600">Book Appointment</a></li>
+            <li><a href="privacy-policy.html" class="text-gray-600 hover:text-red-600">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-600 text-sm">© <span id="current-year">2025</span> Smita's Glam World. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="https://www.instagram.com/smitasglam/" class="social-icon focus:outline-none focus:ring-2 focus:ring-red-600" rel="noopener noreferrer" aria-label="Instagram"><svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326 2.633 1.301-3.608.975-.975 2.242 1.24 3.608 1.301 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.595.073-2.957.447-4.067 1.557-1.11 1.11-1.484 2.472-1.557 4.067-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.073 1.595.447 2.957 1.557 4.067 1.11 1.11 2.472 1.484 4.067 1.557 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.595-.073 2.957-.447 4.067-1.557 1.11-1.11 1.484-2.472 1.557-4.067.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.073-1.595-.447-2.957-1.557-4.067-1.11-1.11-2.472-1.484-4.067-1.557-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61575119536099" class="social-icon focus:outline-none focus:ring-2 focus:ring-red-600" rel="noopener noreferrer" aria-label="Facebook"><svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.407.593 24 1.324 24h11.494v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.787 4.657-4.787 1.325 0 2.463.098 2.795.142v3.24h-1.918c-1.504 0-1.794.715-1.794 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.324V1.324C24 .593 23.407 0 22.676 0z"/></svg></a>
+          <a href="https://wa.me/+919337582090" class="social-icon focus:outline-none focus:ring-2 focus:ring-red-600" rel="noopener noreferrer" aria-label="WhatsApp"><svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/>
+    </svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/+919337582090" class="whatsapp-float" rel="noopener noreferrer" aria-label="WhatsApp Chat">
+    <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M12.04 0C5.408 0 .097 5.31.097 11.942c0 2.132.56 4.225 1.62 6.048L.05 24l6.146-1.614a11.88 11.88 0 0 0 5.845 1.49c6.632 0 11.943-5.31 11.943-11.942S18.672 0 12.04 0zm0 21.87a9.845 9.845 0 0 1-5.022-1.378l-.35-.208-3.645.957.975-3.56-.228-.37a9.845 9.845 0 0 1-1.507-5.27c0-5.468 4.395-9.863 9.863-9.863s9.863 4.395 9.863 9.863c0 5.467-4.395 9.862-9.863 9.862zm5.413-7.38c-.297-.15-1.755-.865-2.028-.965-.272-.1-.47-.15-.667.15-.198.297-.77.965-.945 1.163-.174.198-.347.223-.645.074-.297-.148-1.255-.46-2.39-1.467-.885-.786-1.482-1.755-1.656-2.052-.174-.297-.018-.458.13-.607.135-.135.297-.347.446-.52.148-.174.198-.297.297-.495.1-.198.05-.372-.025-.521-.074-.15-.667-1.607-.915-2.203-.247-.595-.495-.495-.667-.495-.173 0-.372-.025-.57-.025-.198 0-.52.074-.794.372-.272.297-1.04.892-1.04 2.177 0 1.285.966 2.526 1.163 2.699.198.173 2.018 3.07 4.895 4.311 1.61.695 2.873.892 3.864.557.99-.335 1.756-.892 2.004-1.706.248-.814.05-1.532-.223-1.706z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Update current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Hamburger Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if(menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+        const isHidden = navMenu.classList.contains('hidden');
+        if (isHidden) {
+            navMenu.classList.remove('hidden');
+            navMenu.classList.add('flex', 'flex-col', 'space-y-4', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'p-4', 'shadow-md', 'md:flex-row', 'md:static', 'md:bg-transparent', 'md:shadow-none', 'md:space-y-0', 'md:p-0');
+        } else {
+            navMenu.classList.add('hidden');
+            navMenu.classList.remove('flex', 'flex-col', 'space-y-4', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'p-4', 'shadow-md');
+        }
+        });
+    }
+
+    // Cities Dropdown Toggle
+    const citiesToggle = document.getElementById('cities-toggle');
+    const citiesMenu = document.getElementById('cities-menu');
+    if(citiesToggle && citiesMenu) {
+        citiesToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        citiesMenu.classList.toggle('hidden');
+        if (!citiesMenu.classList.contains('hidden') && window.innerWidth < 768) {
+            citiesMenu.classList.add('flex', 'flex-col', 'absolute', 'bg-white', 'shadow-md', 'rounded-md', 'mt-2', 'w-48', 'z-20');
+        } else if (window.innerWidth < 768) {
+            citiesMenu.classList.remove('flex', 'flex-col', 'absolute', 'bg-white', 'shadow-md', 'rounded-md', 'mt-2', 'w-48', 'z-20');
+        }
+        });
+        document.addEventListener('click', (e) => {
+            if (citiesMenu && !citiesToggle.contains(e.target) && !citiesMenu.contains(e.target)) {
+                citiesMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Newsletter Form Submission (copied from index.html)
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        // IMPORTANT: Replace 'YOUR_NEWSLETTER_GOOGLE_SHEET_SCRIPT_ID' with the actual
+        // Web App URL you get after deploying your Google Apps Script.
+        // Follow these steps:
+        // 1. Go to Google Forms (forms.google.com), create a new form.
+        // 2. Add an 'Email Address' (short answer) field.
+        // 3. Link the form to a Google Sheet (Responses tab -> green Sheets icon).
+        // 4. In the Google Sheet, go to Extensions > Apps Script.
+        // 5. Paste the provided Google Apps Script code (from the model's response) into Code.gs.
+        // 6. Deploy the script as a Web App: Deploy > New deployment > Select type: Web app.
+        //    Set 'Execute as' to 'Me' and 'Who has access' to 'Anyone'.
+        // 7. Copy the 'Web app URL' provided after deployment and paste it below.
+        const NEWSLETTER_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhP6DW9oTHaxw7xX-Ktt1vZUpNjZHeBfWD2gbgrDYkcpft5AsQNX3dFK1Qxsc9bVjg/exec'; 
+
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newsletterMessage = document.getElementById('newsletter-message');
+            const submitButton = newsletterForm.querySelector('button[type="submit"]');
+
+            newsletterMessage.textContent = 'Subscribing...';
+            newsletterMessage.classList.remove('text-green-200', 'text-red-200');
+            if (submitButton) submitButton.disabled = true;
+
+            const formData = new FormData(newsletterForm);
+
+            try {
+                const response = await fetch(NEWSLETTER_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData 
+                });
+                
+                const result = await response.json(); // Assuming your script returns JSON
+
+                if (result.result === "success") {
+                    newsletterMessage.textContent = 'Thank you for subscribing! Check your inbox for updates.';
+                    newsletterMessage.classList.remove('text-red-200');
+                    newsletterMessage.classList.add('text-green-200');
+                    newsletterForm.reset();
+                } else {
+                    newsletterMessage.textContent = result.message || 'Failed to subscribe. Please try again.';
+                    newsletterMessage.classList.remove('text-green-200');
+                    newsletterMessage.classList.add('text-red-200');
+                }
+
+            } catch (error) {
+                console.error('Error subscribing to newsletter:', error);
+                newsletterMessage.textContent = 'An error occurred. Please try again later.';
+                newsletterMessage.classList.remove('text-green-200');
+                newsletterMessage.classList.add('text-red-200');
+            } finally {
+                if (submitButton) submitButton.disabled = false;
+            }
+        });
+    }
+
+    // Blog Pagination Logic
+    const postsPerPage = 6; // Number of posts to show per page
+    let currentPage = 1;
+    let blogPosts = []; // This will store all blog post data
+
+    // Dummy data for blog posts (replace with actual data fetching if available)
+    // In a real scenario, you might fetch this from a JSON file or API
+    const allBlogPostsData = [
+        {
+            img: "Images/blog/bridal-makeup-trends-for-2025.jpg",
+            alt: "Bridal Makeup Trends for 2025",
+            title: "Top 5 Bridal Makeup Trends for 2025",
+            description: "Discover the latest bridal makeup trends to look stunning on your wedding day, from bold looks to natural glows.",
+            link: "blog/bridal-makeup-trends.html"
+        },
+        {
+            img: "Images/blog/mehndi-tips-1.jpg",
+            alt: "Mehndi Design Tips for Brides",
+            title: "How to Choose the Perfect Mehndi Design",
+            description: "A guide to selecting the best mehndi design that complements your bridal style and preferences.",
+            link: "blog/mehndi-design-tips.html"
+        },
+        {
+            img: "Images/blog/wed-prep-1.jpg",
+            alt: "Wedding Day Prep Tips for Brides",
+            title: "Wedding Day Prep: Tips for Brides",
+            description: "Essential tips to prepare for your big day, including skincare routines and beauty checklists.",
+            link: "blog/wedding-day-prep.html"
+        },
+        {
+            img: "Images/blog/skin-care-1.jpg",
+            alt: "Skincare Before Wedding",
+            title: "Essential Skincare Before Your Wedding",
+            description: "Achieve that bridal glow with these must-do skincare tips leading up to your wedding.",
+            link: "blog/skincare-before-wedding.html"
+        },
+        {
+            img: "Images/blog/odia-bride-2025.jpg",
+            alt: "Odia bride with modern traditional makeup",
+            title: "What are the latest bridal makeup trends for Odia brides in 2025?",
+            description: "The 2025 Odia bride blends heritage with contemporary elegance. Modern chandan details, skin-first luminosity, and sophisticated red lips",
+            link: "blog/latest-bridal-makeup-trends-Odia-brides.html"
+        },
+        {
+            img: "Images/blog/odia-eyes-2025.jpg",
+            alt: "Odia bride with traditional eye makeup",
+            title: "How to achieve a flawless Odia Bridal Eye Makeup?",
+            description: "From elegant updos to flowing curls, find the ideal hairstyle to match your bridal look.",
+            link: "blog/achieve-flawless-Odia-bridaleye-makeup-look.html"
+        },
+        {
+            img: "Images/blog/Odia-working-woman-1.jpg",
+            alt: "Odia working woman applying quick makeup",
+            title: "How to do everyday Makeup ? Guide for Odia Women: Simple & Stunning Looks",
+            description: "As an Odia makeup artist who's worked with women across Rayagada, Bhubaneswar, and Cuttack, I understand the unique needs of our Odia sisters. Our humid climate",
+            link: "blog/How-to-do-everyday-makeup.html"
+        }
+       
+       
+    ];
+
+    function displayBlogPosts(page) {
+        const blogPostsContainer = document.getElementById('blog-posts-container');
+        blogPostsContainer.innerHTML = ''; // Clear current posts
+
+        const startIndex = (page - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToDisplay = allBlogPostsData.slice(startIndex, endIndex);
+
+        postsToDisplay.forEach(post => {
+            const article = document.createElement('article');
+            article.className = 'blog-post-item bg-white p-6 rounded-lg shadow-md flex flex-col';
+            article.innerHTML = `
+                <img src="${post.img}" alt="${post.alt}" class="h-48 w-full object-cover rounded-lg mb-4">
+                <h3 class="text-2xl font-bold text-red-600 mt-2 font-headings">${post.title}</h3>
+                <p class="text-gray-600 mt-2 flex-grow text-sm">${post.description}</p>
+                <a href="${post.link}" class="inline-block mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 self-start text-sm">Read More</a>
+            `;
+            blogPostsContainer.appendChild(article);
+        });
+        updatePaginationControls();
+    }
+
+    function setupPagination() {
+        const totalPages = Math.ceil(allBlogPostsData.length / postsPerPage);
+        const pageNumbersContainer = document.getElementById('page-numbers');
+        pageNumbersContainer.innerHTML = ''; // Clear existing page numbers
+
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.className = 'pagination-button text-gray-600';
+            if (i === currentPage) {
+                button.classList.add('active');
+            }
+            button.addEventListener('click', () => {
+                currentPage = i;
+                displayBlogPosts(currentPage);
+            });
+            pageNumbersContainer.appendChild(button);
+        }
+    }
+
+    function updatePaginationControls() {
+        const totalPages = Math.ceil(allBlogPostsData.length / postsPerPage);
+        const prevButton = document.getElementById('prev-page');
+        const nextButton = document.getElementById('next-page');
+
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+
+        // Update active state for page number buttons
+        document.querySelectorAll('#page-numbers .pagination-button').forEach(button => {
+            if (parseInt(button.textContent) === currentPage) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayBlogPosts(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        const totalPages = Math.ceil(allBlogPostsData.length / postsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayBlogPosts(currentPage);
+        }
+    });
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+        displayBlogPosts(currentPage);
+        setupPagination();
+    });
+
+  </script>
+
+</body>
+</html>
