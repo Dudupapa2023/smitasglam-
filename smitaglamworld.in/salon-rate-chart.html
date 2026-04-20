@@ -10,7 +10,6 @@
     
     <style>
         :root { --primary-color: #e53e3e; --font-body: 'Lora', serif; --font-heading: 'Dancing Script', cursive; }
-        /* Deeper pink background for better contrast with white cards */
         body { font-family: var(--font-body); background: linear-gradient(135deg, #fce7f3 0%, #fecdd3 100%); min-height: 100vh; }
         .heading-font { font-family: var(--font-heading); }
         .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
@@ -25,85 +24,103 @@
     <header class="pt-12 pb-6 px-4 text-center">
         <h1 class="text-6xl md:text-7xl font-bold text-red-700 heading-font drop-shadow-md mb-2">Smita's Glam World</h1>
         <h2 class="text-3xl font-extrabold text-gray-900 tracking-wide uppercase mt-2 mb-2">The Beauty Salon</h2>
-        <p class="text-xl text-gray-800 italic font-semibold mb-8">Advanced Aesthetics & Everyday Elegance • Serving Rayagada & Koraput</p>
+        <p class="text-xl text-gray-800 italic font-semibold mb-8">Advanced Aesthetics & Everyday Elegance • Serving Therubali, Rayagada & Koraput</p>
         
-        <div class="max-w-2xl mx-auto relative mb-8">
-            <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Search services (e.g. Hydra, Keratin, Waxing)..." class="w-full bg-white border-4 border-pink-300 rounded-full py-4 px-8 focus:outline-none focus:border-red-500 shadow-lg transition-all text-xl font-medium text-gray-900 placeholder-gray-500">
+        <div class="max-w-3xl mx-auto relative mb-6">
+            <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Search services (e.g. Keratin, Facials, Waxing)..." class="w-full bg-white border-4 border-pink-300 rounded-full py-4 px-8 focus:outline-none focus:border-red-500 shadow-lg transition-all text-xl font-medium text-gray-900 placeholder-gray-500">
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4">
-        <div class="flex overflow-x-auto hide-scrollbar bg-white p-2 rounded-2xl shadow-lg border-2 border-pink-200 mb-8 sticky top-4 z-50">
+    <main class="max-w-5xl mx-auto px-4">
+        
+        <div class="flex flex-wrap md:flex-nowrap gap-2 bg-white p-2 rounded-2xl shadow-lg border-2 border-pink-200 mb-8">
             <button onclick="switchTab('hair')" id="btn-hair" class="tab-btn flex-1 whitespace-nowrap px-5 py-4 rounded-xl text-lg font-extrabold transition-all duration-300 bg-red-600 text-white shadow-md">✂️ Hair & Color</button>
             <button onclick="switchTab('skin')" id="btn-skin" class="tab-btn flex-1 whitespace-nowrap px-5 py-4 rounded-xl text-lg font-bold transition-all duration-300 text-gray-700 hover:bg-red-50 hover:text-red-700">✨ Facials & Skin</button>
             <button onclick="switchTab('body')" id="btn-body" class="tab-btn flex-1 whitespace-nowrap px-5 py-4 rounded-xl text-lg font-bold transition-all duration-300 text-gray-700 hover:bg-red-50 hover:text-red-700">🍯 Body & Nails</button>
         </div>
 
-        <div id="tab-hair" class="tab-content active space-y-6">
+        <div id="tab-hair" class="tab-content active space-y-8">
+            
             <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-pink-200">
-                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Hair Artistry</h3>
+                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Cutting & Styling</h3>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Layer/Step Cut</span><span class="font-extrabold text-red-700 text-2xl">₹350</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Keratin Treatment</span><span class="font-extrabold text-red-700 text-2xl">₹3500</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-pink-50 rounded-xl border-2 border-pink-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Korean Head Spa</span><span class="font-extrabold text-red-700 text-2xl">₹1499+</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Global Hair Color</span><span class="font-extrabold text-red-700 text-2xl">₹1500+</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">U-Cut / V-Cut</span><span class="font-extrabold text-red-700 text-2xl">₹180</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Layer Cut</span><span class="font-extrabold text-red-700 text-2xl">₹350</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Step Cut</span><span class="font-extrabold text-red-700 text-2xl">₹350</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Feather Cut</span><span class="font-extrabold text-red-700 text-2xl">₹450</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">One-Length Cut</span><span class="font-extrabold text-red-700 text-2xl">₹150</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Fringes / Front Cut</span><span class="font-extrabold text-red-700 text-2xl">₹100</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Kids Haircut</span><span class="font-extrabold text-red-700 text-2xl">₹180</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Blow Dry</span><span class="font-extrabold text-red-700 text-2xl">₹100</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Straight Finish</span><span class="font-extrabold text-red-700 text-2xl">₹1000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Curls / Waves</span><span class="font-extrabold text-red-700 text-2xl">₹1200</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-pink-200">
+                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Wash, Care & Spa</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Basic Hair Wash</span><span class="font-extrabold text-red-700 text-2xl">₹150</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Clarifying Wash</span><span class="font-extrabold text-red-700 text-2xl">₹180</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Deep Conditioning</span><span class="font-extrabold text-red-700 text-2xl">₹200</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Anti-Dandruff Wash</span><span class="font-extrabold text-red-700 text-2xl">₹350</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Scalp Massage</span><span class="font-extrabold text-red-700 text-2xl">₹500</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Anti-Hairfall Spa</span><span class="font-extrabold text-red-700 text-2xl">₹699</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Hydration Spa</span><span class="font-extrabold text-red-700 text-2xl">₹700</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Anti-Dandruff Spa</span><span class="font-extrabold text-red-700 text-2xl">₹790</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Smoothening Spa</span><span class="font-extrabold text-red-700 text-2xl">₹890</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Protein Spa</span><span class="font-extrabold text-red-700 text-2xl">₹1200</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-pink-50 rounded-xl border-2 border-pink-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Korean Head Spa (Basic)</span><span class="font-extrabold text-red-700 text-2xl">₹1499</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-pink-50 rounded-xl border-2 border-pink-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Korean Head Spa (Premium)</span><span class="font-extrabold text-red-700 text-2xl">₹2499</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-pink-200">
+                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Chemical & Hair Color</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Root Touch-Up</span><span class="font-extrabold text-red-700 text-2xl">₹600</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Highlights (Per Strip)</span><span class="font-extrabold text-red-700 text-2xl">₹350</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Global Hair Colour</span><span class="font-extrabold text-red-700 text-xl">₹1500 - ₹2500</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Olaplex Treatment</span><span class="font-extrabold text-red-700 text-2xl">₹1599</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Perming</span><span class="font-extrabold text-red-700 text-2xl">₹3000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Keratin Spa / Treatment</span><span class="font-extrabold text-red-700 text-2xl">₹3500</span></li>
                     <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Hair Botox Treatment</span><span class="font-extrabold text-red-700 text-2xl">₹3599</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Smoothening / Rebonding</span><span class="font-extrabold text-red-700 text-2xl">₹5000+</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Balayage</span><span class="font-extrabold text-red-700 text-2xl">₹3599</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Permanent Straightening</span><span class="font-extrabold text-red-700 text-2xl">₹5000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Smoothening</span><span class="font-extrabold text-red-700 text-2xl">₹5000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Rebonding</span><span class="font-extrabold text-red-700 text-2xl">₹6000</span></li>
                 </ul>
             </div>
         </div>
 
-        <div id="tab-skin" class="tab-content space-y-6">
+        <div id="tab-skin" class="tab-content space-y-8">
+            
             <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-pink-200">
-                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Facial & Derma</h3>
+                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Complete Facials Menu</h3>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Gold/Diamond Facial</span><span class="font-extrabold text-red-700 text-2xl">₹799+</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-blue-50 rounded-xl border-2 border-blue-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Hydra Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1499+</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Lotus Organic Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1250</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Basic Clean-Up</span><span class="font-extrabold text-red-700 text-2xl">₹250</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Standard Clean-Ups</span><span class="font-extrabold text-red-700 text-2xl">₹350</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">De-Tan Clean-Up</span><span class="font-extrabold text-red-700 text-2xl">₹500</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Fruit Facial</span><span class="font-extrabold text-red-700 text-2xl">₹599</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Jovees Herbal Facial</span><span class="font-extrabold text-red-700 text-2xl">₹700</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Ragaa Derma Bleach Facial</span><span class="font-extrabold text-red-700 text-2xl">₹700</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Gold Facial</span><span class="font-extrabold text-red-700 text-2xl">₹799</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Lotus Golden Facial</span><span class="font-extrabold text-red-700 text-2xl">₹900</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Diamond Facial</span><span class="font-extrabold text-red-700 text-2xl">₹999</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">VLCC Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Ragaa Professional Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1100</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Pearl Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1199</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Lotus Organic</span><span class="font-extrabold text-red-700 text-2xl">₹1250</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Brightening Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1299</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Aroma Magic Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1450</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Anti-Ageing Facial</span><span class="font-extrabold text-red-700 text-2xl">₹1499</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Anti-Acne Facial</span><span class="font-extrabold text-red-700 text-xl">₹1299 - ₹1599</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Vitamin-C Facial</span><span class="font-extrabold text-red-700 text-xl">₹1000 - ₹3000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Hydra Facial</span><span class="font-extrabold text-red-700 text-xl">₹1499 - ₹2499</span></li>
                     <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">O3+ Brightening Facial</span><span class="font-extrabold text-red-700 text-2xl">₹2000</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-pink-50 rounded-xl border-2 border-pink-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Luxury Facial</span><span class="font-extrabold text-red-700 text-2xl">₹4999</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="tab-body" class="tab-content space-y-6">
-            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-pink-200">
-                <h3 class="text-3xl font-bold text-red-700 heading-font border-b-2 border-pink-200 pb-3 mb-5">Maintenance & Spa</h3>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Full Body Waxing</span><span class="font-extrabold text-red-700 text-2xl">₹5000</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-red-50 rounded-xl border-2 border-red-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Rica Full Body Waxing</span><span class="font-extrabold text-red-700 text-2xl">₹7000</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Full Body Massage</span><span class="font-extrabold text-red-700 text-2xl">₹2000</span></li>
-                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Spa Pedi / Mani</span><span class="font-extrabold text-red-700 text-2xl">₹1000 / ₹600</span></li>
-                </ul>
-            </div>
-        </div>
-    </main>
-
-    <a href="https://wa.me/+919337582090" target="_blank" class="fixed bottom-6 right-6 left-6 md:left-auto md:w-auto bg-[#25D366] text-white flex justify-center items-center py-4 px-8 rounded-full shadow-2xl font-extrabold text-xl hover:bg-[#20bd5a] hover:scale-105 transition-all z-50 border-2 border-white">
-        Book on WhatsApp
-    </a>
-
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            // Reset buttons to large font
-            document.querySelectorAll('.tab-btn').forEach(b => b.className = 'tab-btn flex-1 whitespace-nowrap px-5 py-4 rounded-xl text-lg font-bold text-gray-700 hover:bg-red-50 hover:text-red-700 transition-all duration-300');
-            document.getElementById('tab-' + tabId).classList.add('active');
-            // Active button gets extrabold font and red background
-            document.getElementById('btn-' + tabId).className = 'tab-btn flex-1 whitespace-nowrap px-5 py-4 rounded-xl text-lg font-extrabold bg-red-600 text-white shadow-md transition-all duration-300';
-        }
-        function filterServices() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            document.querySelectorAll('.service-item').forEach(item => {
-                item.style.display = item.textContent.toLowerCase().includes(input) ? 'flex' : 'none';
-            });
-        }
-    </script>
-</body>
-</html>
-            </div>
-
-            <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">Lalossa Jewell Facial</span><span class="font-extrabold text-red-700 text-2xl">₹2500</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"><span class="font-semibold text-gray-900 text-xl">O3+ Bridal Facial</span><span class="font-extrabold text-red-700 text-2xl">₹3000</span></li>
+                    <li class="service-item flex justify-between items-center p-4 bg-pink-50 rounded-xl border-2 border-pink-300 shadow-sm"><span class="font-bold text-gray-900 text-xl">Luxury Custom Facial</span><span cla            <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-sm border border-gray-100">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4 heading-font text-red-600 border-b border-pink-100 pb-2">Global Color & Highlights</h3>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3" id="list-color">
                     <li class="service-item flex justify-between items-center bg-gray-50 p-3 rounded-lg"><span class="text-gray-700 font-medium">Root Touch-Up</span><span class="font-bold text-red-600">₹600</span></li>
